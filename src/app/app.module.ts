@@ -11,6 +11,7 @@ import {EditBookComponent} from './edit-book/edit-book.component';
 import {EditReaderComponent} from './edit-reader/edit-reader.component';
 import {DataService} from "./core/data.service";
 import {LoggerService} from "./core/logger.service";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {LoggerService} from "./core/logger.service";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     // PlainLoggerService,
