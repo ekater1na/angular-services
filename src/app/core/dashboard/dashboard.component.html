@@ -7,7 +7,7 @@
         </div>
         <div class="panel-body">
           <li *ngFor='let book of allBooks'>
-            <i>{{book.title}}</i>
+            <i>{{book.title | capitalize }}</i>
             <a [routerLink]="['/editbook', book.bookID]"> Edit </a>
             <a (click)="deleteBook(book.bookID)">Delete</a>
           </li>

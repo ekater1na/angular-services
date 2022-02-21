@@ -1,11 +1,11 @@
 import {Component, OnInit, VERSION} from '@angular/core';
 
-import {Book} from "app/models/book";
-import {Reader} from "app/models/reader";
-import {LoggerService} from 'app/core/logger.service';
-import {DataService} from 'app/core/data.service';
-import {BookTrackerError} from "../models/bookTrackerError";
-import {Title} from "@angular/platform-browser";
+import {Book} from 'app/models/book';
+import {Reader} from 'app/models/reader';
+import {LoggerService} from 'app/core/services/logger.service';
+import {DataService} from 'app/core/services/data.service';
+import {BookTrackerError} from '../../models/bookTrackerError';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-dashboard',
@@ -59,7 +59,7 @@ export class DashboardComponent implements OnInit {
     // catch (error) {
     //   this.loggerService.error(error);
     // }
-    let author: string = await this.dataService.getAuthorRecommendation(readerID);
+    const author: string = await this.dataService.getAuthorRecommendation(readerID);
     this.loggerService.log(author);
     // throw new Error('Something terrible happened!')
   }

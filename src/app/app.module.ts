@@ -1,18 +1,16 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {ErrorHandler, NgModule} from '@angular/core';
+import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 
 import {AddBookComponent} from './add-book/add-book.component';
 import {AddReaderComponent} from './add-reader/add-reader.component';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
-import {DashboardComponent} from './dashboard/dashboard.component';
+import {DashboardComponent} from './core/dashboard/dashboard.component';
 import {EditBookComponent} from './edit-book/edit-book.component';
 import {EditReaderComponent} from './edit-reader/edit-reader.component';
-import {DataService} from "./core/data.service";
-import {LoggerService} from "./core/logger.service";
-import {HttpClientModule} from "@angular/common/http";
-import {BookTrackerErrorHandlerService} from "./core/book-tracker-error-handler.service";
+import {CoreModule} from './core/core.module';
+import {SharedModule} from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -27,20 +25,10 @@ import {BookTrackerErrorHandlerService} from "./core/book-tracker-error-handler.
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    CoreModule,
+    SharedModule
   ],
-  providers: [
-    // PlainLoggerService,
-    // {provide: LoggerService, useExisting: PlainLoggerService},
-    // { provide: LoggerService, useValue: {
-    //   log: (message: string) => console.log(`MESSAGE: ${message}`),
-    //   error: (message: string) => console.error(`PROBLEM: ${message}`),
-    //   }},
-    // { provide: DataService, useFactory: dataServiceFactory, deps: [LoggerService] },
-    LoggerService,
-    DataService,
-    {provide: ErrorHandler, useClass: BookTrackerErrorHandlerService}
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {DataService} from 'app/core/data.service';
-import {LoggerService} from 'app/core/logger.service';
+import {DataService} from 'app/core/services/data.service';
+import {LoggerService} from 'app/core/services/logger.service';
 
 import {Book} from 'app/models/book';
 
@@ -21,7 +21,7 @@ export class EditBookComponent implements OnInit {
   }
 
   ngOnInit() {
-    let bookID: number = parseInt(this.route.snapshot.params['id']);
+    const bookID: number = parseInt(this.route.snapshot.params['id'], 10);
     this.selectedBook = this.dataService.getBookById(bookID);
   }
 
